@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      html {
+        background-color: grey;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        color: white;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .conteudo {
+        text-align: center;
+        width: 350px;
+        height: 150px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: lightgray;
+        color: black;
+        border-radius: 5px;
+        font-size: 25px;
+      }
+      button:hover{
+          cursor: pointer;
+      }
+
+      .botao_nao {
+        float: right;
+        margin-right: 60px;
+      }
+
+      .botao_sim {
+        float: left;
+        margin-left: 60px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .botao_nao {
+        transition: transform 0.3s ease;
+        position: relative;
+      }
+    </style>
+    <script>
+      function getRandomPosition() {
+        var screenWidth = window.innerWidth;
+        var screenHeight = window.innerHeight;
+        var buttonWidth = document.querySelector('.botao_nao').offsetWidth;
+        var buttonHeight = document.querySelector('.botao_nao').offsetHeight;
+        var maxPositionX = screenWidth - buttonWidth;
+        var maxPositionY = screenHeight - buttonHeight;
+        var randomX = Math.floor(Math.random() * maxPositionX);
+        var randomY = Math.floor(Math.random() * maxPositionY);
+        return {
+          x: randomX,
+          y: randomY
+        };
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        var button = document.querySelector('.botao_nao');
+        button.addEventListener('mouseover', function() {
+          var randomPosition = getRandomPosition();
+          button.style.position = 'fixed';
+          button.style.left = randomPosition.x + 'px';
+          button.style.top = randomPosition.y + 'px';
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="conteudo">
+        <!--Parabéns por correr atrás de seus sonhos!-->
+      <h1>Foto do seio hoje?😍</h1>
+        <a href="sim.html" target="_blank">
+          <button class='botao_sim'><b>Sim</b></button>
+        </a>
+      
+      <button class='botao_nao'>
+        <b>Não</b>
+      </button>
+    </div>
+  </body>
+</html>
